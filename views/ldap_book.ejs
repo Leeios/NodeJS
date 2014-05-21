@@ -1,0 +1,38 @@
+<h1>LDAP list</h1>
+<% if (typeof logged != 'undefined') { %>
+	<table>
+	<thead>
+	<tr>
+		<th colspan = '2'><%=: 'Name' | t%></th>
+		<th colspan = '2'><%=: 'fName' | t%></th>
+		<th colspan = '2'>UID</th>
+		<th colspan = '2'>Born</th>
+		<th colspan = '2'>IMG</th>
+		<th colspan = '2'>MOBILE</th>
+	</tr>
+	</thead>
+	<tbody>
+	<% user_list.forEach(function(element){ %>
+	<% if (element['uid'] != undefined) {%>
+	<tr>
+		<td colspan = '2'><%= element['last-name'] %></td>
+		<td colspan = '2'><%= element['first-name'] %></td>
+		<td colspan = '2'><%= element['uid'] %></td>
+		<td colspan = '2'>
+		<% if (element['birth-date'] != undefined) { %>
+			<%= element['birth-date'] %>
+		<% } %></td>
+		<td colspan = '2'>
+		<% if (element['picture'] != undefined) { %>
+			<img src = "https://cdn.42.fr/userprofil/profilview/<%= element['uid'] %>.jpg">
+		<% } %></td>
+		<td colspan = '2'>
+		<% if (element['mobile-phone'] != undefined) { %>
+			<%= element['mobile-phone'] %>
+		<% } %></td>
+	</tr>
+	<% } %>
+	<% }) %>
+	</tbody>
+	</table>
+<% } %>

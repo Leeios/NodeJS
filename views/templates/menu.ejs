@@ -1,0 +1,30 @@
+<div>
+<ul id = "menu">
+<li><img src = '/public/img/logo42.gif' onclick= "location.href = '/';" ></li>
+<li><a href = '/index'><%=: 'home' | t%></a></li>
+<% if (typeof logged != 'undefined') { %>
+<li><a href = '/game'><%=: 'Game' | t%></a></li>
+<li><a href = '/forum'><%=: 'Forum' | t%></a></li>
+<li><a href = '/list'><%=: 'list' | t%></a></li>
+<% if (typeof group != 'undefined' && group == 'ldap') { %>
+<li><a href = '/ldap'><%=: 'ldap' | t%></a></li>
+<% } else if (typeof group != 'undefined' && group == 'admin') { %>
+<li><a href = '/ldap'><%=: 'ldap' | t%></a></li>
+<% } %>
+<li><a href = '/pwdchange'><%=: 'Password' | t%></a></li>
+<li><a href = '/delog'><%=: 'Delog' | t%></a></li>
+<li><a href = '/ticket'><%=: 'Ticket' | t%></a></li>
+<% } else { %>
+<li><a href = '/login'><%=: 'Log' | t%></a></li>
+<li><a href = '/subscribe'><%=: 'Subscribe' | t%></a></li>
+<% } %>
+<% if (typeof group != 'undefined' && group == 'admin') { %>
+<li><a href = '/admin'>Admin</a></li>
+<% } %>
+<% if (typeof logged != 'undefined' && typeof group != 'undefined') { %>
+		<br /><div id = "welcome"><%=:'Connected' | t%><br /><%= group %><br /><%= logged %></div>
+<% } %>
+</ul>
+</div>
+<div id = 'lang'><a href = '/fr'><img src = '/public/img/fr_icon.png'></a>
+<a href = '/en'><img src = '/public/img/us_icon.png'></a></div>

@@ -1,0 +1,11 @@
+<h1>Subscribe</h1>
+<form method = 'post'>
+	<input type = 'text' name = 'user[login]' placeholder = 'Login'>
+	<input type = 'password' name = 'user[passwd]' placeholder = 'Password'>
+	<input type = 'submit' value = 'OK'>
+	<br />
+	<% if (typeof misc != 'undefined' && misc == 'exist') { %>
+		This login is already attributed
+	<% } %>
+	</form>
+

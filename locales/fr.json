@@ -1,0 +1,17 @@
+{
+	"home": "Page principale",
+	"Game": "Jouer",
+	"Forum": "Forum",
+	"list": "Liste des membres",
+	"Password": "Changer le mot de passe",
+	"Delog": "Se deconnecter",
+	"Log": "S'identifier",
+	"Subscribe": "Inscription",
+	"Admin": "Admin",
+	"Connected": "Vous etes connecte",
+	"ntopic": "Nouveau sujet",
+	"Ticket": "Poser un ticket",
+	"ldap": "Liste LDAP",
+	"Name": "Nom",
+	"fName": "Prenom"
+}

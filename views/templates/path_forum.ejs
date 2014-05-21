@@ -1,0 +1,8 @@
+<div id = 'path_forum'>
+<br />
+<% var inc_path = '' %>
+<% for (var i = 1; path[i]; i++) {%>
+	<% inc_path += ('/' + path[i]) %>
+	<a onclick = "location.assign(location.origin += '<%=inc_path%>');" class = 'path_link'> <%=path[i]%></a> >
+<% } %>
+</div>

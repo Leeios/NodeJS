@@ -1,0 +1,11 @@
+<h1>Change password</h1>
+<br />
+<form method = 'post'>
+	<input type = 'password' name = 'user[old_pwd]' placeholder = 'Current password'>
+	<input type = 'password' name = 'user[new_pwd]' placeholder = 'New password'>
+	<input type = 'submit' value = 'OK'>
+	<br />
+	<% if (typeof misc != 'undefined' && misc == 'exist_pwd') { %>
+		Wrong password
+	<% } %>
+</form>

@@ -1,0 +1,61 @@
+<h1>Forum</h1>
+<% include templates/path_forum.ejs %>
+<% if (typeof logged != 'undefined') { %>
+<% if (post_list.length == 0) { %>
+		<div class = 'deny_message'><br /><br />No post on this topic<br /><br /></div>
+	<% } else { %>
+	<script src = '/public/js/graphic.js'></script>
+	<table>
+	<tbody>
+	<% for (var i = 0; post_list[i];i++){ %>
+	<tr>
+		<% if (path.length != 4) {%>
+		<td colspan="1"><a onclick = "switch_display_c('<%=post_list[i].title%>deploy');">+<a></td>
+		<% } else { %>
+		<td colspan="1"><a><a></td>
+		<% } %>
+		<td colspan = '7'>
+		<strong><a onclick = 'location.href += "/<%=post_list[i].title%>";' name = '<%=post_list[i].title%>'><%= post_list[i].title %></a>
+		</strong>
+		<% if (path.length != 4) { %>
+			<div class = 'under_text'><%=post_list[i].content%></div>
+		<% } %>
+		</td>
+		<td colspan = '4'>By <div class = 'author'><%= post_list[i].author %></div></td>
+		<td colspan = '4'><%= post_list[i].date %></td>
+		<% if (group == 'moderator') {%>
+		<% if (path.length > 2) {%>
+			<td colspan = '1'><a onclick = 'location.href += "/<%=post_list[i].title%>/edit";'>E</a></td>
+			<td colspan = '1'><a onclick = 'location.href += "/<%=post_list[i].title%>/delete";'>X</a></td>
+		<% } %>
+		<% } else if (group == 'admin') {%>
+			<td colspan = '1'><a onclick = 'location.href += "/<%=post_list[i].title%>/edit";'>E</a></td>
+			<td colspan = '1'><a onclick = 'location.href += "/<%=post_list[i].title%>/delete";'>X</a></td>
+		<% } %>
+	</tr>
+		<% for(var j = 0; sub_post[i][j] != undefined; j++) {%>
+		<tr class = '<%=post_list[i].title%>deploy deployment'>
+		<td colspan = '1'><a></a></td>
+		<% if (path.length != 4) {%>
+			<td colspan = '7'><a onclick = 'location.href += "/<%=post_list[i].title%>/<%=sub_post[i][j].title%>";'><%= sub_post[i][j].title %></a></td>
+		<% } else { %>
+			<td colspan = '7'><a><%= sub_post[i][j].content %></a></td>
+		<% } %>
+		<td colspan = '4'>By <div class = 'author'><%= sub_post[i][j].author %></div></td>
+		<td colspan = '4'><%= sub_post[i][j].date %></td>
+		</tr>
+		<% } %>
+	<% } %>
+	</tbody>
+	</table>
+<% } %>
+<% if (path.length == 4) {%>
+<a onclick = 'location.href += "/new_topic";' class = 'f_link'><%=: 'ntopic' | t%></a>
+<% } else if (group == 'admin') {%>
+<a onclick = 'location.href += "/new_topic";' class = 'f_link'><%=: 'ntopic' | t%></a>
+<% } else if (group == 'moderator') {%>
+	<% if (path.length == 3) {%>
+	<a onclick = 'location.href += "/new_topic";' class = 'f_link'><%=: 'ntopic' | t%></a>
+	<% } %>
+<% } %>
+<% } %>

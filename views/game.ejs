@@ -1,0 +1,8 @@
+<% if (typeof logged != 'undefined') { %>
+<canvas id = "canvas" width = "1200" height = "800"></canvas>
+<script src = "/socket.io/socket.io.js"></script>
+<script src = "/public/js/socket.js"></script>
+<script>main_call('<%=logged%>');</script>
+<% } else { %>
+	You're not allowed to see this page
+<% } %>

@@ -1,0 +1,62 @@
+<h1>Admin</h1>
+<% if (typeof group != 'undefined' && group == 'admin') { %>
+	<table>
+	<thead>
+	<tr>
+		<th>Login</th>
+		<th>Group</th>
+		<th>Update</th>
+		<th>Delete</th>
+	</tr>
+	</thead>
+	<tbody>
+	<% user_list.forEach(function(element)
+	{ %>
+	<tr>
+		<td><strong><%= element.login %></strong></td>
+		<td><%= element.group %></td>
+		<form method = 'post'>
+		<td>
+			<input type = "text" name = "<%=element.login%>[new_login]" placeholder = "New login">
+			<input type = "submit" value = "OK">
+		<br />
+		</form>
+		<form method = 'post'>
+			<input type = "text" name = "<%=element.login%>[new_passwd]" placeholder = "New password">
+			<input type = "submit" value = "OK">
+		<br />
+		</form>
+		<form method = 'post'>
+			<input type = "text" name = "<%=element.login%>[new_group]" placeholder = "New group">
+			<input type = "submit" value = "OK">
+		<br />
+		</td>
+		</form>
+		<form method = 'post'>
+			<td>
+			<input type = "submit" value = "Delete" name = '<%=element.login%>'>
+		</td>
+		</form>
+	</tr>
+	<% }) %>
+	<tr>
+		<form method = 'post'>
+			<td>
+			<input type = "text" name = "new_user[login]" placeholder = "Login">
+			</td>
+			<td>
+			<input type = "text" name = "new_user[passwd]" placeholder = "Password">
+			</td>
+			<td>
+			<input type = "text" name = "new_user[group]" placeholder = "Group">
+			</td>
+			<td>
+			<input type = "submit" value = "Create" name = 'new_user[create]'>
+			</td>
+		</form>
+	</tr>
+	</tbody>
+	</table>
+<% } else { %>
+	You're not allowed to see this page
+<% } %>

@@ -1,0 +1,27 @@
+{
+	"name": "serv_test",
+	"version": "0.1.0",
+	"description": "Simple app test",
+	"repository":
+	{
+		"type": "git",
+		"url": "https://github.com/Leeios/meuh.git"
+	},
+	"dependencies":
+	{
+		"express": "latest",
+		"static-favicon": "latest",
+		"body-parser": "latest",
+		"ejs": "latest",
+		"mongoose": "latest",
+		"mongodb": "latest",
+		"bcrypt": "latest",
+		"client-sessions": "latest",
+		"i18next": "latest",
+		"http-proxy": "latest",
+		"date-utils": "latest",
+		"socket.io": "latest",
+		"LDAP": "latest",
+		"btoa": "latest"
+	}
+}

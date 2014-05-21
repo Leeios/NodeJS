@@ -1,0 +1,19 @@
+<h1>Member list</h1>
+<% if (typeof logged != 'undefined') { %>
+	<table>
+	<thead>
+	<tr>
+		<th>Login</th>
+		<th>Group</th>
+	</tr>
+	</thead>
+	<tbody>
+	<% user_list.forEach(function(element){ %>
+	<tr>
+		<td><strong><%= element.login %></strong></td>
+		<td><%= element.group %></td>
+	</tr>
+	<% }) %>
+	</tbody>
+	</table>
+<% } %>

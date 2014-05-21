@@ -1,0 +1,58 @@
+<h1>Forum</h1>
+<% include templates/path_forum.ejs %>
+<% if (typeof logged != 'undefined') { %>
+<table class = 'final_post'>
+	<tr>
+		<td colspan = '6'><strong>
+			<strong><a><%=post_list[0].title%></a></strong></td>
+		<td colspan = '3'>By <div class = 'author'><%=post_list[0].author%></div></td>
+		<td colspan = '3'><%=post_list[0].date%></td>
+		<% if (group == 'moderator') { %>
+					<td colspan = '1'><a onclick = 'location.href += "/edit";'>E</a></td>
+			<td colspan = '1'><a onclick = 'location.href += "/delete";'>X</a></td>
+		<%} else if (group == 'admin') { %>
+			<td colspan = '1'><a onclick = 'location.href += "/edit";'>E</a></td>
+			<td colspan = '1'><a onclick = 'location.href += "/delete";'>X</a></td>
+		<% } %>
+
+	</tr>
+	<tr>
+		<td colspan = '12'>
+			<div class = 'print_content'>
+			<%=post_list[0].content%>
+			</div>
+		</td>
+	</tr>
+<%for (var i = 1; post_list[i]; i++) {%>
+<tr></tr>
+	<tr>
+		<td colspan = '6'><div class = 'author'><%=post_list[i].author%></div></td>
+		<td colspan = '6'><%=post_list[i].date%></td>
+		<% if (group == 'moderator') { %>
+					<td colspan = '1'><a onclick = 'location.href += "/<%= post_list[i].title%>/edit";'>E</a></td>
+			<td colspan = '1'><a onclick = 'location.href += "/<%= post_list[i].title%>/delete";'>X</a></td>
+		<%} else if (group == 'admin') { %>
+			<td colspan = '1'><a onclick = 'location.href += "/<%= post_list[i].title%>/edit";'>E</a></td>
+			<td colspan = '1'><a onclick = 'location.href += "/<%= post_list[i].title%>/delete";'>X</a></td>
+		<% } %>
+	</tr>
+	<tr>
+		<td colspan = '12'>
+			<div class = 'print_content'>
+			<%=post_list[i].content%>
+			</div>
+		</td>
+	</tr>
+<% } %>
+</table>
+<script src = '/public/js/graphic.js'></script>
+<div id = 'button_reply'>
+<a class = 'print_reply' onclick="switch_display('post_reply');">Show reply window</a>
+</div>
+<div id = 'post_reply'>
+<form method="post" name = 'reply'>
+<textarea name = 'text_reply' placeholder = 'Post' rows = '16' cols = '97' ></textarea>
+</form>
+<a class = 'f_link' onclick = "document.forms['reply'].submit();">REPLY</a>
+</div>
+<% } %>
